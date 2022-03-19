@@ -11,3 +11,5 @@ xaxt="n" (elimina i valori dall'asse x)
 setwd=("x") (crea cartella di lavoro/work directoy, dove x=percorso cartella su pc da trasformare in cartella di lavoro; come raster, una volta creata rimane per sempre, ma è da richiamare tramite brick)
 brick=(x,...) (importa dati su R di cartella di lavoro, analogo di funzione libraty(raster) per setwd)
 colorRampPalette(c(x,y,z,...)) (100) (cambiare colori legenda grafico; x,y,z,..=colori diversi, c si usa perchè i colori sono insiemi di dati, (100)=sfumature totali)
+plot(x$y) (plottare una sola banda y dell'immagine x)
+par(mfrow=c(x,y)) (Funzione Multiframe=crare una pagina in cui mettere tot plot vicini; x è il numero di righe su cui disporli, y le colonne). NB: 
