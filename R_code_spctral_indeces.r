@@ -1,3 +1,18 @@
 library(raster)
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
 l1992<-brick("defor1_.jpg")
+l2006<-brick("defor2_.jpg")
+dvi1992 = l1992[[1]] - l1992[[2]]
+ndvi1992 = (l1992[[1]] - l1992[[2]]) / (l1992[[1]] + l1992[[2]])
+cl<-colorRampPalette(c("dark blue", "yellow", "red","black")) (100)
+par(mfrow=c(2,1))
+plotRGB(l1992, r=1, g=2, b=3, stretch="lin")
+plot(ndvi1992, col=cl)
+dvi2006 = l2006[[1]] - l2006[[2]]
+ndvil2006 = (l2006[[1]] - l2006[[2]]) / (l2006[[1]] + l2006[[2]])
+par(mfrow=c(2,1))
+plot(ndvi1992, col=cl)
+plot(ndvi2006, col=cl)
+library(RStoolbox)
+si1992<-spectralIndices(l1992, green=3, red=2, nir=1)
+library(rasterdiv)
