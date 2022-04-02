@@ -14,3 +14,6 @@ colorRampPalette(c(x,y,z,...)) (100) (cambiare colori legenda grafico; x,y,z,..=
 plot(x$y) (plottare una sola banda y dell'immagine x)
 par(mfrow=c(x,y)) (Funzione Multiframe=crare una pagina in cui mettere tot plot vicini; x è il numero di righe su cui disporli, y le colonne).
 plotRGB(x,r=w,g=y,b=z,stretch="a") (dove x è l'iimagine, w, y, z sono i livelli (NB non i nomi dei livelli, ma il numero del livello, come 1, 2, 3) e a il tipo di stretch (lin o hist)
+dviX<-X[[Y]] - X[[Z]] (difference vegetation index, dove X=nome immagine, Y=banda del nir, Z=banda del red) (teor pag 13)
+ndviX<-(X[[Y]] - X[[Z]]) / (X[[Y]] + X[[Z]]) (normalized difference vegetation index) (teor pag 14)
+siX<-spectralIndices(X, A=B, C=D, E=f) (Function that calculates all the index for an image, X=image name, A=colore 1 con B banda del colore A, C=colore 2 con D banda del colore C, E=colore 3 con F banda del colore E) 
