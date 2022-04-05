@@ -1,2 +1,6 @@
 library(raster)
 setwd("C:/Users/kirir/OneDrive/Desktop/lab/greenland")
+cl <- colorRampPalette(c("dark blue","light blue","yellow","red")) (100)
+rlist <- list.files(pattern = "lst")
+import <- lapply(rlist, raster)
+tgr <- stack(import)
