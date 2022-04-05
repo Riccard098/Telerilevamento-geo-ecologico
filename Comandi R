@@ -17,3 +17,7 @@ plotRGB(x,r=w,g=y,b=z,stretch="a") (dove x è l'iimagine, w, y, z sono i livelli
 dviX<-X[[Y]] - X[[Z]] (difference vegetation index, dove X=nome immagine, Y=banda del nir, Z=banda del red) (teor pag 13)
 ndviX<-(X[[Y]] - X[[Z]]) / (X[[Y]] + X[[Z]]) (normalized difference vegetation index) (teor pag 14)
 siX<-spectralIndices(X, A=B, C=D, E=f) (Function that calculates all the index for an image, X=image name, A=colore 1 con B banda del colore A, C=colore 2 con D banda del colore C, E=colore 3 con F banda del colore E) 
+raster("x") (import a single data) (pag 16)
+list.files(pattern=Y) (creates a list of different files; Y = something common in the files to join, like something in the name) (pag 17)
+lapplay(X, Y) (apllyes a function Y to a list of objects X created by the function list.files)
+stock(X) (crates a single file joining different single files; X = list of different files created by list.files)
