@@ -20,4 +20,17 @@ siX <- spectralIndices(X, A=B, C=D, E=f) (Function that calculates all the index
 raster("x") (import a single data) (pag 16)
 list.files(pattern=Y) (creates a list of different files; Y = something common in the files to join, like something in the name) (pag 17)
 lapplay(X, Y) (apllyes a function Y to a list of objects X created by the function list.files)
-stock(X) (crates a single file joining different single files; X = list of different files created by list.files)
+stock(X) (crates a single file joining different single files; X = list of different files created by list.files)7
+unsuperClass(X, nClasses=Y) (divide i pixel dell'immagine X in Y classi, dove le classi sono raggruppamenti in cui si mettono pixel simili per valori di riflettanza)
+ggRGB(X, r=Y, g=W, b=Z, stretch="A") (serve a visualizzare in maniera eleganti le immagini; X=immagine da visualizzare, Y/W/Z=diverse bande di X da assoggettar ai colori red, gree, e blue, A=lin/hist) (pag 20)
+p1 + p2 (Multiframe fatto con il pacchetto "patchwork", in cui mette di fianco le immagini associate a p1 e p2) (pag20)
+p1 / p2 (Multiframe fatto con il pacchetto "patchwork", in cui mette una sopra all'altra le immagini associate a p1 e p2)
+(p1 + p2) / (p3 + p4) (unione di 26 e 27)
+freq(X) (dice qual è la frequenza di ognuna delle classi ottenuta tramite la funzione unsuperClass) (pag 20)
+proporzioni pixel in immagine classificata tramite la funzione unsuperClass (es. pag 21)
+percentuali pixel in immagine classificata tramite la funzione unsuperClass
+data.frame(X, Y, Z) (crea una tabella dove X, Y, Z sono le colonne; ovviamente prima di poterlo fare è necessario collegare dei dati a X, Y, Z, ad es. X <- "Class 1", "Class 2"; Y <- 2, 5; Z <- 7, 8. dove Y e Z contengono in ordine i valori di Class 1 e Class 2) (pag 21)
+Viev(X) (serve a visualizzare la tabella X creata con la funzione data.frame; ovviamente bisogna prima collegare il nome X al dataframe mediante <-)
+ggplot (guardalo a pag 22 perchè poco chiaro)
+geom_bar(stat="X", fill="Y") (guardalo a pag 22 perchè poco chiaro)
+focal(X, matrix(W, Y, Z), fun=A) (questa funzione crea una griglia mobile sopra l'immagine di dimensione Y*Z pixel, in cui un singolo pixel occuperà W spazio = 1 / (Y*Z); fun è la funzione da calcolare, come la media, la mediana, la deviazione standard, la devianza, etc.) (es pag 23)
