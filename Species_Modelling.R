@@ -1,0 +1,45 @@
+library(raster)
+library(rgdal)
+library(sdm)
+file <- system.file("external/species.shp", package="sdm")
+file
+species <- shapefile(file)
+species
+plot(species)
+occ <- species$Occurrence
+plot(species[occ == 1,], col="blue", pch=19)
+points(species[occ == 0,], col="red", pch=19)
+path <- system.file("external", package="sdm")
+lst <- list.files(path=path, pattern='asc', full.names=T)
+preds <- stack(lst)
+cl <- colorRampPalette(c('blue','orange','red','yellow')) (100)
+plot(preds, col=cl)
+preds <- stack(lst)
+plot(preds, col=cl)
+elev <- preds$elevation
+prec <- preds$precipitation
+temp <- preds$temperature
+vege <- preds$vegetation
+plot(elev, col=cl)
+points(species[occ == 1,], pch=19)
+plot(temp, col=cl)
+points(species[occ == 1,], pch=19)
+plot(prec, col=cl)
+points(species[occ == 1,], pch=19)
+plot(vege, col=cl)
+points(species[occ == 1,], pch=19)
+datasdm <- sdmData(train=species, predictors=preds)
+datasdm
+m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods="glm")
+p1 <- predict(m1, newdata = preds)
+plot(p1, col=cl)
+plot(p1, col=cl)
+points(species[occ == 1,], pch=19)
+par(mfrow=c(2,3))
+plot(p1, col=cl)
+plot(elev, col=cl)
+plot(prec, col=cl)
+plot(temp, col=cl)
+plot(vege, col=cl)
+final <- stack(preds, p1)
+plot(final, col=cl)
