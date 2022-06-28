@@ -3,7 +3,7 @@ library(raster)
 library(RStoolbox)
 library(rasterdiv)
 
-# Set datawork
+# Set workdirecotory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
 
 # Import and rename datas
