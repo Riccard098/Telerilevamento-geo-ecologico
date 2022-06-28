@@ -1,17 +1,40 @@
+# Recall library
 library(raser)
 library(RStoolbox)
+
+# Set datawork
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
+
+# Import and rename datas
 gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
+
+# PlotRGB  with different stretches
 plotRGB(gc, r=1, g=2, b=3, stretch="lin")
 plotRGB(gc, r=1, g=2, b=3, stretch="hist")
+
+# Classification of datas in two classes
 gcclass <- unsuperClass(gc, nClass=2)
 gcclass
+
+# Plot of classified map datas
 plot(gcclass$map)
+
+# Classification of datas in four classes
 gcclass <- unsuperClass(gc, nClass=4)
+
+# Plot of classified map datas
 plot(gcclass$map)
+
+# Create a specific palette
 cl <- colorRampPalette(c("yellow", "red", "blue", "black")) (100)
+
+# Plot of classified map datas with the new specific palette
 plot(gcclass$map, col=cl)
+
+# Create a single file with the gcclass&map datas
 st <- stack(gcclass$map)
+
+# Plot the new datas
 plot(st)
 st <- stack(gc, gcclass$map)
 plot(st)
