@@ -3,10 +3,10 @@ library(raster)
 library(rasterVis) 
 library(rgdal)
 
-# Import datas
+# Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab/greenland")
  
-# Rename datas
+# Import and rename datas
 lst_2000 <- raster("lst_2000.tif")
 lst_2005 <- raster("lst_2005.tif")
 lst_2010 <- raster("lst_2010.tif")
