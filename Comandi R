@@ -20,7 +20,7 @@ siX <- spectralIndices(X, A=B, C=D, E=f) (Function that calculates all the index
 raster("x") (import a single data) (pag 16)
 list.files(pattern=Y) (creates a list of different files; Y = something common in the files to join, like something in the name) (pag 17)
 lapplay(X, Y) (apllyes a function Y to a list of objects X created by the function list.files)
-stock(X) (crates a single file joining different single files; X = list of different files created by list.files)7
+stack(X) (crates a single file joining different single files; X = list of different files created by list.files)7
 unsuperClass(X, nClasses=Y) (divide i pixel dell'immagine X in Y classi, dove le classi sono raggruppamenti in cui si mettono pixel simili per valori di riflettanza)
 ggRGB(X, r=Y, g=W, b=Z, stretch="A") (serve a visualizzare in maniera eleganti le immagini; X=immagine da visualizzare, Y/W/Z=diverse bande di X da assoggettar ai colori red, gree, e blue, A=lin/hist) (pag 20)
 p1 + p2 (Multiframe fatto con il pacchetto "patchwork", in cui mette di fianco le immagini associate a p1 e p2) (pag20)
