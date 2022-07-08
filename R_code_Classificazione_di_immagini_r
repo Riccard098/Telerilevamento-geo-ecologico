@@ -1,5 +1,5 @@
 # Recall library
-library(raser)
+library(raster)
 library(RStoolbox)
 
 # Set datawork
