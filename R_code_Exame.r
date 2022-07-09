@@ -64,4 +64,4 @@ plotRGB(TAl, 4, 3, 2, stretch="Lin")
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 plot(TAl, col=cl)
 
-
+I valori degli assi sono invertiti nel tuo plot rispetto a quelli del plot del prof, cerca una soluzione! Forse è per questo che la Temperatura sembra aumentare
