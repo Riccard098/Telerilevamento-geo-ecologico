@@ -6,32 +6,32 @@ library(RStoolbox)
 library(ggplot2)
 library(patchwork)
 
-a <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2000185.h18v04.061.2020051194135.hdf")
+a <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2000122.h18v04.006.2015160142027.hdf")
 a
 b <- a[1]
 writeRaster (b, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2000.tif")
 
-c <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2005185.h18v04.061.2020246181149.hdf")
+c <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2005121.h18v04.006.2015252170612.hdf")
 c
 d <- c[1]
 writeRaster (d, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2005.tif")
 
-e <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2010185.h18v04.061.2021175231615.hdf")
+e <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2010121.h18v04.006.2016039155825.hdf")
 e
 f <- e[1]
 writeRaster (f, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2010.tif")
 
-g <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2015185.h18v04.061.2021359101400.hdf")
+g <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2015121.h18v04.006.2016222212352.hdf")
 g
 h <- e[1]
 writeRaster (h, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2015.tif")
 
-i <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2020185.h18v04.061.2021012190329.hdf")
+i <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2020122.h18v04.006.2020153184216.hdf")
 i
 j <- i[1]
 writeRaster (j, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2020.tif")
 
-k <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11A2.A2022177.h18v04.061.2022186044823.hdf")
+k <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2022121.h18v04.006.2022158001206.hdf")
 k
 l <- k[1]
 writeRaster (l, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2022.tif")
@@ -54,6 +54,7 @@ plot(lst_2010)
 plot(lst_2015)
 plot(lst_2020)
 plot(lst_2022)
+
 
 rlist <- list.files(pattern="lst")
 import <- lapply(rlist,raster) 
