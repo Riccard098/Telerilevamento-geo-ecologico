@@ -1,3 +1,4 @@
+#recall libraries
 library(raster)
 library(terra)
 library(rasterVis) 
@@ -6,8 +7,10 @@ library(RStoolbox)
 library(ggplot2)
 library(patchwork)
 
+#set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab2")
 
+# Import and rename datas
 lst_2000 <- raster("lst_2000.tif")
 lst_2005 <- raster("lst_2005.tif")
 lst_2010 <- raster("lst_2010.tif")
@@ -25,43 +28,41 @@ plot(lst_2015)
 plot(lst_2020)
 plot(lst_2022)
 
-
+# List all files
 rlist <- list.files(pattern="lst")
+
+# Apply the function "raster" to rlist
 import <- lapply(rlist,raster) 
+
+# Merge files
 TAl <- stack(import)
+
+# Plot the new file
 plot(TAl)
 
+# Create a specific palette
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+
+# Plot the new file with the specific palette
 plot(TAl, col=cl)
 
-#Land Cover
-lst_2000c <- unsuperClass(lst_2000, nClasses=4)
-lst_2005c <- unsuperClass(lst_2005, nClasses=4)
-lst_2010c <- unsuperClass(lst_2010, nClasses=4)
-lst_2015c <- unsuperClass(lst_2015, nClasses=4)
-lst_2020c <- unsuperClass(lst_2020, nClasses=4)
-lst_2022c <- unsuperClass(lst_2022, nClasses=4)
 
+# Import the .jpg files
+M2000 <- brick("m_2000.jpg")
+...
 
+# Visualize datas
 par(mfrow=c(3,2))
-plot(lst_2000c$map, col=cl)
-plot(lst_2005c$map, col=cl)
-plot(lst_2010c$map, col=cl)
-plot(lst_2015c$map, col=cl)
-plot(lst_2020c$map, col=cl)
-plot(lst_2022c$map, col=cl)
+ggRGB(M2000, 1, 2, 3, stretch="lin")
+...
 
-freq(lst_2000c$map)
-freq(lst_2005c$map)
-freq(lst_2010c$map)
-freq(lst_2015c$map)
-freq(lst_2020c$map)
-freq(lst_2022c$map)
+# Divide each image in classes
+M2000c <- unsuperClass(M2000, nClasses=5)
+...
 
-lst_2000c$map
-lst_2005c$map
-lst_2010c$map
-lst_2015c$map
-lst_2020c$map
-lst_2022c$map
+
+# Calculate the frequency of each class in each image
+freq(M2000c$map)
+...
+
 
