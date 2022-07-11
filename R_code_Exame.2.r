@@ -1,4 +1,4 @@
-#recall libraries
+# Recall libraries
 library(raster)
 library(terra)
 library(rasterVis) 
@@ -7,7 +7,7 @@ library(RStoolbox)
 library(ggplot2)
 library(patchwork)
 
-#set Workdirectory
+# Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab2")
 
 # Import and rename datas
@@ -19,7 +19,7 @@ lst_20 <- raster("lst_2020.tif")
 lst_22 <- raster("lst_2022.tif")
 
 
- # Par toghether the plots of the datas 
+# Par toghether the plots of the datas 
 par(mfrow=c(3,2))
 plot(lst_00)
 plot(lst_05)
@@ -56,23 +56,23 @@ M20 <- brick("m_20.jpg")
 M22 <- brick("m_22.jpg")
 
 # Visualize datas
-p1 <- ggRGB(M00, 1, 2, 3, stretch="hist")
-p2 <- ggRGB(M05, 1, 2, 3, stretch="hist")
-p3 <- ggRGB(M10, 1, 2, 3, stretch="hist")
-p4 <- ggRGB(M15, 1, 2, 3, stretch="hist")
-p5 <- ggRGB(M20, 1, 2, 3, stretch="hist")
-p6 <- ggRGB(M22, 1, 2, 3, stretch="hist")
+p1 <- ggRGB(M00, 1, 2, 3, stretch="lin")
+p2 <- ggRGB(M05, 1, 2, 3, stretch="lin")
+p3 <- ggRGB(M10, 1, 2, 3, stretch="lin")
+p4 <- ggRGB(M15, 1, 2, 3, stretch="lin")
+p5 <- ggRGB(M20, 1, 2, 3, stretch="lin")
+p6 <- ggRGB(M22, 1, 2, 3, stretch="lin")
 
 # Plot all the plot together
 (p1 + p2 +p3) / (p4 + p5 +p6)
 
 # Divide each image in classes
-M00c <- unsuperClass(M20, nClasses=5)
-M05c <- unsuperClass(M05, nClasses=5)
-M10c <- unsuperClass(M10, nClasses=5)
-M15c <- unsuperClass(M15, nClasses=5)
-M20c <- unsuperClass(M20, nClasses=5)
-M22c <- unsuperClass(M22, nClasses=5)
+M00c <- unsuperClass(M00, nClasses=3)
+M05c <- unsuperClass(M05, nClasses=3)
+M10c <- unsuperClass(M10, nClasses=3)
+M15c <- unsuperClass(M15, nClasses=3)
+M20c <- unsuperClass(M20, nClasses=3)
+M22c <- unsuperClass(M22, nClasses=3)
 
 
 # Calculate the frequency of each class in each image
@@ -99,4 +99,11 @@ tot15 <- 134653
 tot20 <- 136864
 tot22 <- 135375
 
+# Calculate proportion of frost areas per year
+prop_frost_00 <- 304441 / tot00
+prop_frost_05 <- 304441 / tot05
+prop_frost_10 <- 304441 / tot10
+prop_frost_15 <- 304441 / tot15
+prop_frost_20 <- 304441 / tot20
+prop_frost_22 <- 304441 / tot22
 
