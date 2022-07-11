@@ -106,12 +106,12 @@ p6 <- ggRGB(M22, 1, 2, 3, stretch="hist")
 (p1 + p2 +p3) / (p4 + p5 +p6)
 
 # Divide each image in classes
-M00c <- unsuperClass(M20, nClasses=5)
-M05c <- unsuperClass(M05, nClasses=5)
-M10c <- unsuperClass(M10, nClasses=5)
-M15c <- unsuperClass(M15, nClasses=5)
-M20c <- unsuperClass(M20, nClasses=5)
-M22c <- unsuperClass(M22, nClasses=5)
+M00c <- unsuperClass(M20, nClasses=3)
+M05c <- unsuperClass(M05, nClasses=3)
+M10c <- unsuperClass(M10, nClasses=3)
+M15c <- unsuperClass(M15, nClasses=3)
+M20c <- unsuperClass(M20, nClasses=3)
+M22c <- unsuperClass(M22, nClasses=3)
 
 
 # Calculate the frequency of each class in each image
@@ -140,3 +140,4 @@ tot22 <- 135375
 
 
 
+Le classi sono 3 perché conta il bianco del mare come una. Facendone tre conta rosso, blu, e bianco. Nelle diverse frequenze l'ordine cambia, ma i numeri sono circa sempre gli stessi in ognuno
