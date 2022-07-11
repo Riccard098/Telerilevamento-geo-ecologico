@@ -65,4 +65,38 @@ plotRGB(TAl, 4, 3, 2, stretch="Lin")
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
 plot(TAl, col=cl)
 
+
+#Land Cover
+lst_2000c <- unsuperClass(lst_2000, nClasses=4)
+lst_2005c <- unsuperClass(lst_2005, nClasses=4)
+lst_2010c <- unsuperClass(lst_2010, nClasses=4)
+lst_2015c <- unsuperClass(lst_2015, nClasses=4)
+lst_2020c <- unsuperClass(lst_2020, nClasses=4)
+lst_2022c <- unsuperClass(lst_2022, nClasses=4)
+
+
+par(mfrow=c(3,2))
+plot(lst_2000c$map, col=cl)
+plot(lst_2005c$map, col=cl)
+plot(lst_2010c$map, col=cl)
+plot(lst_2015c$map, col=cl)
+plot(lst_2020c$map, col=cl)
+plot(lst_2022c$map, col=cl)
+
+freq(lst_2000c$map)
+freq(lst_2005c$map)
+freq(lst_2010c$map)
+freq(lst_2015c$map)
+freq(lst_2020c$map)
+freq(lst_2022c$map)
+
+lst_2000c$map
+lst_2005c$map
+lst_2010c$map
+lst_2015c$map
+lst_2020c$map
+lst_2022c$map
+
+
+
 I valori degli assi sono invertiti nel tuo plot rispetto a quelli del plot del prof, cerca una soluzione! Forse è per questo che la Temperatura sembra aumentare
