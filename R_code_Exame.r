@@ -1,3 +1,4 @@
+#recall libraries
 library(raster)
 library(terra)
 library(rasterVis) 
@@ -6,38 +7,41 @@ library(RStoolbox)
 library(ggplot2)
 library(patchwork)
 
-a <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2000122.h18v04.006.2015160142027.hdf")
+#set Workdirectory
+setwd("C:/Users/kirir/OneDrive/Desktop/lab3")
+
+# Convert the .hdf downloaded from "Earthdata search" in .tiff's files
+a <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2000122.h18v04.006.2015160142027.hdf")
 a
 b <- a[1]
-writeRaster (b, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2000.tif")
+writeRaster (b, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2000.tif")
 
-c <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2005121.h18v04.006.2015252170612.hdf")
+c <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2005121.h18v04.006.2015252170612.hdf")
 c
 d <- c[1]
-writeRaster (d, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2005.tif")
+writeRaster (d, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2005.tif")
 
-e <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2010121.h18v04.006.2016039155825.hdf")
+e <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2010121.h18v04.006.2016039155825.hdf")
 e
 f <- e[1]
-writeRaster (f, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2010.tif")
+writeRaster (f, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2010.tif")
 
-g <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2015121.h18v04.006.2016222212352.hdf")
+g <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2015121.h18v04.006.2016222212352.hdf")
 g
 h <- e[1]
-writeRaster (h, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2015.tif")
+writeRaster (h, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2015.tif")
 
-i <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2020122.h18v04.006.2020153184216.hdf")
+i <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2020122.h18v04.006.2020153184216.hdf")
 i
 j <- i[1]
-writeRaster (j, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2020.tif")
+writeRaster (j, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2020.tif")
 
-k <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2022121.h18v04.006.2022158001206.hdf")
+k <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2022121.h18v04.006.2022158001206.hdf")
 k
 l <- k[1]
-writeRaster (l, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2022.tif")
+writeRaster (l, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2022.tif")
 
-setwd("C:/Users/kirir/OneDrive/Desktop/lab2")
-
+# Import and rename datas
 lst_2000 <- raster("lst_2000.tif")
 lst_2005 <- raster("lst_2005.tif")
 lst_2010 <- raster("lst_2010.tif")
@@ -45,8 +49,7 @@ lst_2015 <- raster("lst_2015.tif")
 lst_2020 <- raster("lst_2020.tif")
 lst_2022 <- raster("lst_2022.tif")
 
-
- # Par toghether the plots of the datas 
+# Par toghether the plots of the datas 
 par(mfrow=c(3,2))
 plot(lst_2000)
 plot(lst_2005)
@@ -55,48 +58,48 @@ plot(lst_2015)
 plot(lst_2020)
 plot(lst_2022)
 
-
+# List all files
 rlist <- list.files(pattern="lst")
+
+# Apply the function "raster" to rlist
 import <- lapply(rlist,raster) 
+
 # Merge files
 TAl <- stack(import)
+
+# Plot the new file
 plot(TAl)
-plotRGB(TAl, 4, 3, 2, stretch="Lin")
+
+# Create a specific palette
 cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+
+# Plot the new file with the specific palette
 plot(TAl, col=cl)
 
+# Save all the plot as .jpg's files in your workdirectory and cut them
+plot(lst_2000, col=cl)
+plot(lst_2005, col=cl)
+plot(lst_2010, col=cl)
+plot(lst_2015, col=cl)
+plot(lst_2020, col=cl)
+plot(lst_2022, col=cl)
 
-#Land Cover
-lst_2000c <- unsuperClass(lst_2000, nClasses=4)
-lst_2005c <- unsuperClass(lst_2005, nClasses=4)
-lst_2010c <- unsuperClass(lst_2010, nClasses=4)
-lst_2015c <- unsuperClass(lst_2015, nClasses=4)
-lst_2020c <- unsuperClass(lst_2020, nClasses=4)
-lst_2022c <- unsuperClass(lst_2022, nClasses=4)
+# Rename downloaded .jpg files in order to avoi conficts with previous files while recalling them
 
+# Import the .jpg files
+M2000 <- brick("m_2000.jpg")
+...
 
+# Visualize datas
 par(mfrow=c(3,2))
-plot(lst_2000c$map, col=cl)
-plot(lst_2005c$map, col=cl)
-plot(lst_2010c$map, col=cl)
-plot(lst_2015c$map, col=cl)
-plot(lst_2020c$map, col=cl)
-plot(lst_2022c$map, col=cl)
+ggRGB(M2000, 1, 2, 3, stretch="lin")
+...
 
-freq(lst_2000c$map)
-freq(lst_2005c$map)
-freq(lst_2010c$map)
-freq(lst_2015c$map)
-freq(lst_2020c$map)
-freq(lst_2022c$map)
-
-lst_2000c$map
-lst_2005c$map
-lst_2010c$map
-lst_2015c$map
-lst_2020c$map
-lst_2022c$map
+# Divide each image in classes
+M2000c <- unsuperClass(M2000, nClasses=5)
+...
 
 
-
-I valori degli assi sono invertiti nel tuo plot rispetto a quelli del plot del prof, cerca una soluzione! Forse è per questo che la Temperatura sembra aumentare
+# Calculate the frequency of each class in each image
+freq(M2000c$map)
+...
