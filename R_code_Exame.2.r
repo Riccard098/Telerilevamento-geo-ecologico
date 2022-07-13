@@ -139,4 +139,9 @@ d <- perc_frost_15
 e <- perc_frost_20
 f <- perc_frost_22
 
-plot(c(a, b, c, d, e, f), main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas")
+scar <- (c(a, b, c, d, e, f))
+plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
+         
+# Visualize quantile-quantile graphic
+qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
+qqline(scar, datax = FALSE, distribution = qnorm)
