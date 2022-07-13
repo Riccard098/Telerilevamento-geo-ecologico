@@ -37,6 +37,9 @@ import <- lapply(rlist,raster)
 # Merge files
 TAl <- stack(import)
 
+# Close the previous window to reset the plot settings
+dev.off
+
 # Plot the new file
 plot(TAl)
 
@@ -143,5 +146,11 @@ scar <- (c(a, b, c, d, e, f))
 plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
          
 # Visualize quantile-quantile graphic
+qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
+qqline(scar, datax = FALSE, distribution = qnorm)
+
+# Plot the previous graphics toghether
+par(mfrow=c(2,1))
+plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
 qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
 qqline(scar, datax = FALSE, distribution = qnorm)
