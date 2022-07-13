@@ -106,12 +106,12 @@ p6 <- ggRGB(M22, 1, 2, 3, stretch="hist")
 (p1 + p2 +p3) / (p4 + p5 +p6)
 
 # Divide each image in classes
-M00c <- unsuperClass(M20, nClasses=3)
-M05c <- unsuperClass(M05, nClasses=3)
-M10c <- unsuperClass(M10, nClasses=3)
-M15c <- unsuperClass(M15, nClasses=3)
-M20c <- unsuperClass(M20, nClasses=3)
-M22c <- unsuperClass(M22, nClasses=3)
+M00c <- unsuperClass(M00, nClasses=5)
+M05c <- unsuperClass(M05, nClasses=5)
+M10c <- unsuperClass(M10, nClasses=5)
+M15c <- unsuperClass(M15, nClasses=5)
+M20c <- unsuperClass(M20, nClasses=5)
+M22c <- unsuperClass(M22, nClasses=5)
 
 
 # Calculate the frequency of each class in each image
@@ -136,8 +136,46 @@ tot05 <- 135750
 tot10 <- 135026
 tot15 <- 134653
 tot20 <- 136864
-tot22 <- 135375 
+tot22 <- 135375
 
+# Calculate proportion of frost areas per year
+prop_frost_00 <- 1180 / tot00
+prop_frost_05 <- 1079 / tot05
+prop_frost_10 <- 1190 / tot10
+prop_frost_15 <- 1054 / tot15
+prop_frost_20 <- 529 / tot20
+prop_frost_22 <- 439 / tot22
 
+# Check proportions
+prop_frost_00
+prop_frost_05
+prop_frost_10
+prop_frost_15
+prop_frost_20
+prop_frost_22
 
-Le classi sono 3 perché conta il bianco del mare come una. Facendone tre conta rosso, blu, e bianco. Nelle diverse frequenze l'ordine cambia, ma i numeri sono circa sempre gli stessi in ognuno
+# Calculate percentage of frost areas per year
+perc_frost_00 <- prop_frost_00 * 100
+perc_frost_05 <- prop_frost_05 * 100
+perc_frost_10 <- prop_frost_10 * 100
+perc_frost_15 <- prop_frost_15 * 100
+perc_frost_20 <- prop_frost_20 * 100
+perc_frost_22 <- prop_frost_22 * 100
+
+# Check percentages
+perc_frost_00
+perc_frost_05
+perc_frost_10
+perc_frost_15
+perc_frost_20
+perc_frost_22
+
+# Create a plot to visualize the loss of ice
+a <- perc_frost_00
+b <- perc_frost_05
+c <- perc_frost_10
+d <- perc_frost_15
+e <- perc_frost_20
+f <- perc_frost_22
+
+plot(c(a, b, c, d, e, f), main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas")
