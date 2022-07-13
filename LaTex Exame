@@ -1,0 +1,73 @@
+\documentclass{beamer}
+\usepackage{color}
+\usetheme{Berkeley}
+\usecolortheme{spruce}
+\title{Variation of surface temperature on Alps from 2000 to 2022}
+\author[]{Riccardo Biagini}
+
+\begin{document}
+
+\maketitle
+\AtBeginSection[] % Do nothing for \section*
+{	
+\begin{frame}
+\frametitle{Steps of the work}
+\tableofcontents[currentsection,currentsubsection,currentsubsubsection]
+\end{frame}
+}
+\section{Time series analysis}
+\subsection{Datas converison}
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+    \item Mars' surface is covered with \textbf{craters} that formed when comets and/or asteroids impacted the red planet.
+    \pause\item These craters are especially numerous in the \textbf{southern highlands} of Mars
+\end{itemize}
+
+\end{frame}
+
+\subsection{Plotting datas}
+
+
+\subsection{Create a Stack}
+
+\section{Land cover analysis}
+\subsection{Recall new datas}
+
+\begin{frame}{Mars}
+\centering
+\includegraphics[width=0.7\textwidth] {sonda.jpg}
+    
+\end{frame}
+
+\subsection{Class division}
+
+\begin{frame}{Mars}
+\centering
+\includegraphics[width=0.7\textwidth] {sonda 3.jpg}
+    
+\end{frame}
+
+\subsection{Calculate percentage}
+
+
+\section{Results}
+\subsection{Original plot}
+
+\begin{frame}{Results}
+\centering
+\includegraphics[width=0.4\textwidth] {sonda 3.jpg} \includegraphics[width=0.4\textwidth] {sonda.jpg}\\
+\smallskip
+\includegraphics[width=0.4\textwidth] {sonda.jpg} \includegraphics[width=0.4\textwidth] {sonda 3.jpg}
+\end{frame}
+
+\subsection{Q-Q plot}
+\begin{frame}{Used formual}
+\begin{equation}
+    e^{i+\pi}+1=0
+\end{equation}
+\end{frame}
+
+ 
+\end{document}
