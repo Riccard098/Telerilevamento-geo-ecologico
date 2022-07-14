@@ -6,6 +6,7 @@ library(rgdal)
 library(RStoolbox)
 library(ggplot2)
 library(patchwork)
+library(car)
 
 #set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab3")
