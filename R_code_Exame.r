@@ -171,18 +171,10 @@ perc_frost_20
 perc_frost_22
 
 #create a dataframe
-Years <- c("2000", "2005", "2010", "2015", "2020", "2022")
-Percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
-Balrog <- data.frame(Years, Percent_frost)
-View(Balrog)
+years <- c("2000", "2005", "2010", "2015", "2020", "2022")
+percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
+balrog <- data.frame(years, percent_frost)
+View(balrog)
 
 # ggplot the dataframe
-ggplot(Balrog, aes(Years, Percent_frost, group = 1)) +
-           geom_point() +
-           geom_line() +
-           labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
-
-         
-# Visualize quantile-quantile graphic
-qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
-qqline(scar, datax = FALSE, distribution = qnorm)
+ggplot(balrog, aes(years, percent_frost, group = 1)) + geom_point() + geom_line() + labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
