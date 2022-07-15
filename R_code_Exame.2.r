@@ -136,7 +136,6 @@ perc_frost_20
 perc_frost_22
 
 
-
 #create a dataframe
 Years <- c("2000", "2005", "2010", "2015", "2020", "2022")
 Percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
@@ -148,9 +147,6 @@ ggplot(Balrog, aes(Years, Percent_frost, group = 1)) +
            geom_point() +
            geom_line() +
            labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
-
-
-
 
 
 
