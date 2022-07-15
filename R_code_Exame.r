@@ -50,7 +50,7 @@ lst_15 <- raster("lst_2015.tif")
 lst_20 <- raster("lst_2020.tif")
 lst_22 <- raster("lst_2022.tif")
 
- # Par toghether the plots of the datas 
+# Par toghether the plots of the datas 
 par(mfrow=c(3,2))
 plot(lst_00)
 plot(lst_05)
@@ -114,7 +114,6 @@ M15c <- unsuperClass(M15, nClasses=5)
 M20c <- unsuperClass(M20, nClasses=5)
 M22c <- unsuperClass(M22, nClasses=5)
 
-
 # Calculate the frequency of each class in each image
 freq(M00c$map)
 freq(M05c$map)
@@ -171,16 +170,18 @@ perc_frost_15
 perc_frost_20
 perc_frost_22
 
-# Create a plot to visualize the loss of ice
-a <- perc_frost_00
-b <- perc_frost_05
-c <- perc_frost_10
-d <- perc_frost_15
-e <- perc_frost_20
-f <- perc_frost_22
+#create a dataframe
+Years <- c("2000", "2005", "2010", "2015", "2020", "2022")
+Percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
+Balrog <- data.frame(Years, Percent_frost)
+View(Balrog)
 
-scar <- (c(a, b, c, d, e, f))
-plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
+# ggplot the dataframe
+ggplot(Balrog, aes(Years, Percent_frost, group = 1)) +
+           geom_point() +
+           geom_line() +
+           labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
+
          
 # Visualize quantile-quantile graphic
 qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
