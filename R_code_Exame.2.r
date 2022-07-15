@@ -105,8 +105,8 @@ tot22 <- 135375
 
 # Calculate proportion of frost areas per year
 prop_frost_00 <- 1128 / tot00
-prop_frost_05 <- 756 / tot05
-prop_frost_10 <- 1248 / tot10
+prop_frost_05 <- 956 / tot05
+prop_frost_10 <- 1178 / tot10
 prop_frost_15 <- 811 / tot15 #o 904
 prop_frost_20 <- 711 / tot20
 prop_frost_22 <- 439 / tot22
@@ -135,17 +135,26 @@ perc_frost_15
 perc_frost_20
 perc_frost_22
 
-# Create a plot to visualize the loss of ice
-a <- perc_frost_00
-b <- perc_frost_05
-c <- perc_frost_10
-d <- perc_frost_15
-e <- perc_frost_20
-f <- perc_frost_22
 
-scar <- (c(a, b, c, d, e, f))
-plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
-         
+
+#create a dataframe
+Years <- c("2000", "2005", "2010", "2015", "2020", "2022")
+Percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
+Balrog <- data.frame(Years, Percent_frost)
+View(Balrog)
+
+
+ggplot(Balrog, aes(Years, Percent_frost, group = 1)) +
+           geom_point() +
+           geom_line() +
+           labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
+
+
+
+
+
+
+
 # Visualize quantile-quantile graphic
 qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
 qqline(scar, datax = FALSE, distribution = qnorm)
@@ -153,5 +162,5 @@ qqline(scar, datax = FALSE, distribution = qnorm)
 # Plot the previous graphics toghether
 par(mfrow=c(2,1))
 plot(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
-qqnorm(scar, main="Variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
+qqnorm(scar, main="Q-Q plot of the variation of the percentage of frost areas from 2000 to 2022", xlab="Year", ylab="Percentage of Frost Areas", pch=16)
 qqline(scar, datax = FALSE, distribution = qnorm)
