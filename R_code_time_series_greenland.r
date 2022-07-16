@@ -1,7 +1,5 @@
 # Recall libraries
 library(raster)
-library(rasterVis) 
-library(rgdal)
 
 # Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab/greenland")
