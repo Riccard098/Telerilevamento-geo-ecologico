@@ -4,13 +4,13 @@ library(raster)
 # Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab/greenland")
  
-# Import and rename datas
+# Import and rename data
 lst_2000 <- raster("lst_2000.tif")
 lst_2005 <- raster("lst_2005.tif")
 lst_2010 <- raster("lst_2010.tif")
 lst_2015 <- raster("lst_2015.tif")
 
-# Par toghether the plots of the datas 
+# Par toghether the plots of the data
 par(mfrow=c(2,2))
 plot(lst_2000)
 plot(lst_2005)
@@ -48,22 +48,22 @@ plot(TGr, col=cl)
 # Recall libraries
 library(raster)
 
-# Import datas
+# Import data
 setwd("C:/Users/kirir/OneDrive/Desktop/lab/en")
 
-# Import and rename datas
+# Import and rename data
 en01 <- raster("EN_0001.png") 
 
 # Create a specific palette
 cl <- colorRampPalette(c('red','orange','yellow'))(100)
 
-# Plot the datas with the specific palette
+# Plot the data with the specific palette
 plot(en01, col=cl)
 
-# Import and rename new datas
+# Import and rename new data
 en13 <- raster("EN_0013.png")
 
-# Plot the new datas
+# Plot the new data
 plot(en13, col=cl)
 
 # Import the whole data set 
@@ -76,7 +76,7 @@ rimp <- lapply(rlist, raster)
 # Merge files
 en <- stack(rimp)
 
-# Plot the datas
+# Plot the data
 plot(en, col=cl)
 
 # Plot EN01 besides EN13
@@ -91,10 +91,9 @@ difen <-  en[[1]] - en[[13]]
 # Create a specific palette
 cldif <- colorRampPalette(c('blue','white','red'))(100)
 
-# Plot the new datas
+# Plot the new data
 plot(difen, col=cldif)
 
 # PlotRGB  
 plotRGB(en, r=1, g=7, b=13, stretch="lin")
 plotRGB(en, r=1, g=7, b=13, stretch="hist")
-
