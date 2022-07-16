@@ -7,29 +7,29 @@ library(patchwork)
 # Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
 
-# Import and rename datas
+# Import and rename data
 l92 <- brick("defor1_.jpg")
 l06 <- brick("defor2_.jpg")
 
-# PlortRGB of datas
+# PlortRGB of data
 ggRGB(l92, r=1, g=2, b=3, stretch="lin")
 ggRGB(l06, r=1, g=2, b=3, stretch="lin")
 
-# Patch datas of different years toghether
+# Patch data of different years toghether
 p1 <- ggRGB(l92, r=1, g=2, b=3, stretch="lin")
 p2 <- ggRGB(l06, r=1, g=2, b=3, stretch="lin")
 p1+p2
 p1/p2
 
-# Classification of datas in two classes
+# Classification of data in two classes
 l92c <- unsuperClass(l92, nClasses=2)
 l06c <- unsuperClass(l06, nClasses=2)
 
-# Plot of classified datas
+# Plot of classified data
 plot(l92c$map)
 plot(l06c$map)
 
-# Frequency of classified datas
+# Frequency of classified data
 freq(l92c$map)
 freq(l06c$map)
 l92
