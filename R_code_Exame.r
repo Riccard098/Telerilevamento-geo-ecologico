@@ -1,4 +1,4 @@
-#recall libraries
+# Recall libraries
 library(raster)
 library(terra)
 library(rasterVis) 
@@ -8,7 +8,7 @@ library(ggplot2)
 library(patchwork)
 library(car)
 
-#set Workdirectory
+# Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab3")
 
 # Convert the .hdf downloaded from "Earthdata search" in .tiff's files
@@ -170,7 +170,7 @@ perc_frost_15
 perc_frost_20
 perc_frost_22
 
-#create a dataframe
+# Create a dataframe
 years <- c("2000", "2005", "2010", "2015", "2020", "2022")
 percent_frost <- c("0.833241", "0.7061865", "0.8701754", "0.5990766", "0.5252078", "0.3242844")
 balrog <- data.frame(years, percent_frost)
