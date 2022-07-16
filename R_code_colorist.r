@@ -8,7 +8,7 @@ library(ggplot2)
 data("fiespa_occ")
 
 
-# Importing and renaming datas
+# Importing and renaming data
 met1<-metrics_pull(fiespa_occ) 
 
 
@@ -37,7 +37,7 @@ map_single(met1_distill,p1custom)
 data("fisher_ud") 
 
 
-# Importing and renaming datas
+# Importing and renaming data
 m2 <- metrics_pull(fisher_ud)
 
 
