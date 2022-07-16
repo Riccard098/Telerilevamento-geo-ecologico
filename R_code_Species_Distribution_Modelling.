@@ -1,25 +1,46 @@
+# Recall libraries
 library(raster)
 library(rgdal)
 library(sdm)
+
 file <- system.file("external/species.shp", package="sdm")
-file
 species <- shapefile(file)
+
+# looking at the set
 species
+
+# Plot
 plot(species)
+
+# Check the occurrences
 occ <- species$Occurrence
+
+# Plot
 plot(species[occ == 1,], col="blue", pch=19)
 points(species[occ == 0,], col="red", pch=19)
+
+# Look at the path
 path <- system.file("external", package="sdm")
+
+# list the data
 lst <- list.files(path=path, pattern='asc', full.names=T)
+
+# Stack the data
 preds <- stack(lst)
+
+# Cerate s specific palette
 cl <- colorRampPalette(c('blue','orange','red','yellow')) (100)
+
+# Plot preds with the specific palette
 plot(preds, col=cl)
-preds <- stack(lst)
-plot(preds, col=cl)
+
+# Rename the data
 elev <- preds$elevation
 prec <- preds$precipitation
 temp <- preds$temperature
 vege <- preds$vegetation
+
+# plot predictors and occurrences
 plot(elev, col=cl)
 points(species[occ == 1,], pch=19)
 plot(temp, col=cl)
@@ -28,18 +49,22 @@ plot(prec, col=cl)
 points(species[occ == 1,], pch=19)
 plot(vege, col=cl)
 points(species[occ == 1,], pch=19)
+
+# set the data for the sdm
 datasdm <- sdmData(train=species, predictors=preds)
-datasdm
+
+# Model
 m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods="glm")
+
+# Make the raster output layer
 p1 <- predict(m1, newdata = preds)
-plot(p1, col=cl)
+
+# Plot
 plot(p1, col=cl)
 points(species[occ == 1,], pch=19)
-par(mfrow=c(2,3))
-plot(p1, col=cl)
-plot(elev, col=cl)
-plot(prec, col=cl)
-plot(temp, col=cl)
-plot(vege, col=cl)
+
+# Add the stack
 final <- stack(preds, p1)
+
+# Plot final
 plot(final, col=cl)
