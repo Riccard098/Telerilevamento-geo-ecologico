@@ -9,13 +9,13 @@ library(patchwork)
 # Set Workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
 
-# Import and rename datas
+# Import and rename data
 sen <- brick("sentinel.png")
 
-# Plotting datas
+# Plotting data
 ggRGB(sen, 1, 2, 3, stretch="lin")
 
-# Patch datas 
+# Patch data 
 p1 <- ggRGB(sen, 1, 2, 3, stretch="lin")
 p2 <- ggRGB(sen, 2, 1, 3, stretch="lin")
 p1 + p2
