@@ -1,8 +1,6 @@
 # Recall libraries
 library(raster)
 library(terra)
-library(rasterVis) 
-library(rgdal)
 library(RStoolbox)
 library(ggplot2)
 library(patchwork)
