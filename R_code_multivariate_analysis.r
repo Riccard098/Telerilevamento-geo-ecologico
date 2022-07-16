@@ -1,8 +1,8 @@
 
-# install.packages("raster")
+# install.packages
 library(raster)
  
-# Settaggio cartella di lavoro
+# Set workdirectory
 setwd("C:/Users/kirir/OneDrive/Desktop/lab")
  
 # import
