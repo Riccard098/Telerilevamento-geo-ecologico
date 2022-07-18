@@ -104,7 +104,7 @@ tot22 <- 135375
 prop_frost_00 <- 1128 / tot00
 prop_frost_05 <- 956 / tot05
 prop_frost_10 <- 1178 / tot10
-prop_frost_15 <- 811 / tot15 #o 904
+prop_frost_15 <- 811 / tot15
 prop_frost_20 <- 711 / tot20
 prop_frost_22 <- 439 / tot22
 
@@ -144,3 +144,9 @@ ggplot(Balrog, aes(Years, Percent_frost, group = 1)) +
            geom_point() +
            geom_line() +
            labs(x = "Years", y = "Percentage of frost pixels", title = "Variation of the percentage of frost areas from 2000 to 2022")
+
+# Calculate the percentage change through time from 2000 to 2022
+perc_00 <- (perc_frost_00 * 100)/ 0.833241
+perc_22 <- (perc_frost_22 * 100)/ 0.833241
+total_percentage_change <- (percentage_change_00 - percentage_change_22)
+total_percentage_change
