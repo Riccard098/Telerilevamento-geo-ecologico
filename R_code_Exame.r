@@ -6,38 +6,38 @@ library(ggplot2)
 library(patchwork)
 
 # Set Workdirectory
-setwd("C:/Users/kirir/OneDrive/Desktop/lab3")
+setwd("C:/Users/kirir/OneDrive/Desktop/lab2")
 
 # Convert the .hdf downloaded from "Earthdata search" in .tiff's files
-a <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2000122.h18v04.006.2015160142027.hdf")
+a <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2000122.h18v04.006.2015160142027.hdf")
 a
 b <- a[1]
-writeRaster (b, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2000.tif")
+writeRaster (b, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2000.tif")
 
-c <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2005121.h18v04.006.2015252170612.hdf")
+c <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2005121.h18v04.006.2015252170612.hdf")
 c
 d <- c[1]
-writeRaster (d, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2005.tif")
+writeRaster (d, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2005.tif")
 
-e <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2010121.h18v04.006.2016039155825.hdf")
+e <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2010121.h18v04.006.2016039155825.hdf")
 e
 f <- e[1]
-writeRaster (f, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2010.tif")
+writeRaster (f, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2010.tif")
 
-g <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2015121.h18v04.006.2016222212352.hdf")
+g <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2015121.h18v04.006.2016222212352.hdf")
 g
-h <- e[1]
-writeRaster (h, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2015.tif")
+h <- g[1]
+writeRaster (h, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2015.tif")
 
-i <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2020122.h18v04.006.2020153184216.hdf")
+i <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2020122.h18v04.006.2020153184216.hdf")
 i
 j <- i[1]
-writeRaster (j, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2020.tif")
+writeRaster (j, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2020.tif")
 
-k <- sds("C:/Users/kirir/OneDrive/Desktop/lab3/MOD11B3.A2022121.h18v04.006.2022158001206.hdf")
+k <- sds("C:/Users/kirir/OneDrive/Desktop/lab2/MOD11B3.A2022121.h18v04.006.2022158001206.hdf")
 k
 l <- k[1]
-writeRaster (l, "C:/Users/kirir/OneDrive/Desktop/lab3/lst_2022.tif")
+writeRaster (l, "C:/Users/kirir/OneDrive/Desktop/lab2/lst_2022.tif")
 
 # Import and rename datas
 lst_00 <- raster("lst_2000.tif")
