@@ -36,7 +36,7 @@ import <- lapply(rlist,raster)
 TAl <- stack(import)
 
 # Close the previous window to reset the plot settings
-dev.off
+dev.off()
 
 # Plot the new file
 plot(TAl)
