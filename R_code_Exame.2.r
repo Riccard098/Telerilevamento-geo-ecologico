@@ -65,7 +65,7 @@ p5 <- ggRGB(M20, 1, 2, 3, stretch="lin")
 p6 <- ggRGB(M22, 1, 2, 3, stretch="lin")
 
 # Plot all the plot together
-(p1 + p2 +p3) / (p4 + p5 +p6)
+(p1 + p2 + p3) / (p4 + p5 + p6)
 
 # Divide each image in classes
 M00c <- unsuperClass(M00, nClasses=6)
